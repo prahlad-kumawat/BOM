@@ -1,0 +1,183 @@
+Bom - bom is used Window object to menuplate and Dom is used document object to 
+menuplate.
+
+>  Height & Width Menuplation - This methods gets the height and width of Window
+    1.inner height - inspect height is not calculated.
+    2.outer height - inspect height is calculated.
+
+    ex - let iHeight = window.innerHeight;
+         console.log(iHeight);
+
+    3.inner width - border of the window is not included.
+    4.outer width - border is included.
+     Note - Scroll bar is not included in innerWidth and outerWidth
+
+
+> Open & Close method - 
+                  window.open(URL, name, specs);
+   1.URL- we must pass domain name with its protocall.
+    ex - http://www.yahoobaba.net                    
+    
+   2.name - you can pass the new open window name or _Blank and _parent
+      2.1 _Blank is open new window and this is default properties
+      2.2 _parent is used to open new link in current window
+
+   3.specs - specs means specifications. its multiple properties inside
+   1.Width and Height - deside the width and height of window
+   2.Left and Top - where the window is located in screen desided using left and top.
+
+
+   ex - <button onclick="myFun()">Open New Window</button>
+   ex - <button onclick="closeFun()">Close New Window</button>
+
+    <script>
+     var myWindow;
+        const myFun = () => {
+            myWindow = window.open("https://translate.google.com/", "_blank", "width=500px , height=200px , left=500px , top=200px");
+        }
+       const closeFun = () =>{
+            myWindow.close();
+        }
+    </script>
+
+
+    Note - 1.must gives porperties in px.
+           
+>  moveTo() and moveBy - This method is used to move new open window after opening.
+
+   ex - var myWindow;
+        const myFun = () => {
+            myWindow = window.open("", "_blank", "width=500px , height=200px,left=100px,top=100px" );
+        }
+        
+       const moveWindow = () => {
+            myWindow.moveTo(200 , 200)
+       }
+
+  Note - 
+        1.moveTo() takes two parameter left and top and this value is not takes px.
+        
+        //Diff bw moveTo and moveBy
+        > The moveBy() method of the Window interface moves the open window respect of window.open methods left and top value.
+        >moveTo is move window respect to screen left and right 0px.
+
+
+> resizeTo() and resizeBy() - This methods is used to resize the current window.
+           ex -
+                <button onclick="myFun()" >Open New Window</button>
+                <button onclick="resizeWindow()" >resize Window</button>
+
+                <script>
+                    var myWindow;
+                    const myFun = () => {
+                        myWindow = window.open("", "_blank", "width=500px , height=200px,left=100px,top=100px" );
+                    }
+                    
+                const resizeWindow = () => {
+                        myWindow.resizeTo(200 , 200);
+                }    
+
+                </script>
+
+// resizeTo() and resizeBy() diff - 
+                                   *resizeTo is increse width and height of window is respecting of 0.
+                                   *resizeBy is increse width and height of window is added the current window width and height.
+
+
+>scrollTo() and scrollBy() - 
+                           when we scroll the scrollbar using a js use these methods. 
+             SomeInfo - 1. X is represent Horizontal scroll bar (When you want to scroll left gives negative value and want to right gives possitive values)             
+                        2. y is represent Vertical scroll bar (When you want to scroll top gives negative value and bottom gives possitive value)
+
+       ex -  const myFun = () => {
+            window.scrollBy(0, -50);
+        }
+
+        //first parameter is X axis and second parameter is Y axis(negative value move scroll upside and possitive value moves down)
+
+       Diff bw scrollTo() and scrollBy() - 
+       scrollTo() is first create a gap in scroll bar and then increse the value 
+       scrollBy is not create any gap in scroll bar. 
+
+
+
+                                      
+
+>Location of window- when you want to access the location 
+                        you want to right window.location or location. 
+
+//some of the location properties -                     
+1.location.host - 127.0.0.1:5500 ;   
+2.location.hostname - 127.0.0.1  ;                    
+3.location.href - http://127.0.0.1:5500/text.html ;
+4.location.pathname - /text.html;
+5.location.port - 5500 ;
+6.location.protcol - http: ;
+7.location.hash - this element returns value in the url after #. we can change the
+ hash
+  ex -  http://127.0.0.1:5500/text.html/#first   // output - #first
+        location.hash = "RahulBirla";
+         output - #RahulBirla;
+8.location.search - this element returns value in the url after ?.
+                         because url denoted ? as a search.
+          ex -  http://127.0.0.1:5500/Bom/text.html/?helloworld
+               output - ?helloworld
+
+    Note - we can also set all of the properties using these properties. when we click a button an set the url of the website.
+            location.href = "https://www.w3schools.com/jsref/prop_loc_hash.asp";  
+
+
+// some of the location methods -
+1.location.reload  - this is used to reload a page and methods does't take any parameter.
+
+                 <button onclick="myFun()">Reload</button>
+                    Ex -const myFun = () =>{
+                            location.reload();
+                        }
+
+2.location.assign  - This method used to change URL and open it new URL website.
+                    ex -   const myFun = () =>{
+                            location.assign("https://www.google.com");
+                        }
+
+3.location.replace -  This method used to change URL and open it new URL website.
+             
+   diff assign() and replace()  -
+                      when we use assign() we can click back and get previous page but we can not back when we use replace()
+
+
+
+
+> History object -  This is used to get the page History.
+    1.history.length - This is used to get the length of the history.
+    2.histoy.back - This is used to back page one by one.
+    3.histoy.forward - This is used to next page one by one.
+     ex -   <button onclick="myFun()">Next Page</button>
+                    Ex -const myFun = () =>{
+                            history.forward();
+                        }
+
+    4.histoy.go - This is used to go next and previous page using number -1 is denotes one page back and 1 is denoted one page next and when we can right 2 its forwarded two pages.
+     Ex -           const myFun = () =>{
+                            history.go(2);
+                        }
+
+                        
+
+     
+
+
+
+
+
+
+
+             
+    
+
+
+
+
+
+
+    
